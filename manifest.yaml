@@ -8,10 +8,10 @@ label:
   zh_Hans: Slack Thread Bot
   pt_BR: Slack Thread Bot
 description:
-  en_US: "Slack bot plugin supporting thread replies (optionally posting the first reply in the channel), mrkdwn formatting, and referencing thread history and user list."
-  ja_JP: "スレッド返信（初回返信をチャンネルにも投稿可能）、mrkdwn対応、スレッド履歴やユーザーリストへの参照ができるSlackボットプラグイン。"
-  zh_Hans: "支持线程回复（可选择将第一次回复发布至频道）、mrkdwn格式并可引用线程历史和用户列表的Slack机器人插件。"
-  pt_BR: "Plugin de bot do Slack com suporte a respostas em thread (opção de postar a primeira resposta no canal), formatação mrkdwn e acesso ao histórico de thread e lista de usuários."
+  en_US: "Slack bot plugin for thread replies (optionally posting the first reply to the channel), mrkdwn formatting, referencing thread history and user list, and optional usage channel restriction."
+  ja_JP: "スレッド返信（初回返信をチャンネルにも投稿可）、mrkdwn対応、スレッド履歴・ユーザーリスト参照、任意で利用チャンネルを制限可能なSlackボットプラグイン。"
+  zh_Hans: "支持线程回复（可选将首次回复发送至频道）、mrkdwn格式、引用线程历史和用户列表、并可选限制使用频道的Slack机器人插件。"
+  pt_BR: "Plugin de bot do Slack para respostas em thread (opcionalmente postando a primeira resposta no canal), formatação mrkdwn, acesso ao histórico de thread e lista de usuários, e restrição opcional de canais de uso."
 icon: icon.svg
 resource:
   memory: 268435456

@@ -12,13 +12,14 @@
 
 ### Description
 
-Slack bot plugin supporting thread replies (optionally posting the first reply in the channel), mrkdwn formatting, and referencing thread history and user list.
+Slack bot plugin for thread replies (optionally posting the first reply to the channel), mrkdwn formatting, referencing thread history and user list, and optional usage channel restriction.
 
 #### Features
 
 - Reply within Slack threads (with an optional setting to also post the first reply in the channel)
 - Support for Slack `mrkdwn` formatting in replies
 - Access to thread conversation history, user information, and the Slack thread timestamp (`thread_ts`) from a linked app
+- Optional restriction to a single Slack channel for more secure usage
 
 > [!NOTE]
 > The `thread_ts` is primarily provided for advanced use cases. In most scenarios, you likely won't need to use it.
@@ -35,7 +36,8 @@ Follow the same setup procedure as the official SlackBot plugin.
 However, this plugin requires different scopes:
 
 ```text
-app_mentions:read, users:read, channels:history, groups:history, chat:write, groups:write
+app_mentions:read, users:read, channels:history, groups:history, chat:write, groups:write, channels:read,
+groups:read
 ```
 
 For details on how to set up the official SlackBot plugin, see:

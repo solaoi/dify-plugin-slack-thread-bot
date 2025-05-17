@@ -12,13 +12,14 @@
 
 ### 描述
 
-支持线程回复（可选择将第一次回复发布至频道）、mrkdwn格式并可引用线程历史和用户列表的Slack机器人插件。
+支持线程回复（可选将首次回复发送至频道）、mrkdwn格式、引用线程历史和用户列表、并可选限制使用频道的Slack机器人插件。
 
 #### 功能
 
 - 在 Slack 线程中回复（可选设置同时在频道中发送首条回复）
 - 在回复中支持 Slack `mrkdwn` 格式
 - 从关联的应用中访问线程会话历史、用户信息，以及 Slack 线程时间戳（ `thread_ts` ）
+- 可选择将使用范围限定至单个 Slack 频道，以实现更安全的使用
 
 > [!NOTE]
 > `thread_ts` 主要为高级用例提供。在大多数情况下，您可能不需要使用它。
@@ -35,7 +36,8 @@ https://github.com/solaoi/dify-plugin-slack-thread-bot
 但需要注意的是，本插件所需的权限范围（scopes）不同：
 
 ```text
-app_mentions:read, users:read, channels:history, groups:history, chat:write, groups:write
+app_mentions:read, users:read, channels:history, groups:history, chat:write, groups:write, channels:read,
+groups:read
 ```
 
 有关如何设置官方 SlackBot 插件的详细信息，请参阅：

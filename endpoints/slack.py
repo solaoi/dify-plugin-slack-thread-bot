@@ -198,6 +198,9 @@ class SlackEndpoint(Endpoint):
         if data.get("type") == "event_callback":
             event = data.get("event")
 
+            # allowed_channel設定を取得
+            allowed_channel_setting = settings.get("allowed_channel", "").strip()
+
             # Handle different event types
             if event.get("type") == "app_mention":
                 # Handle mention events - when the bot is @mentioned
@@ -209,13 +212,57 @@ class SlackEndpoint(Endpoint):
 
                 # Get channel ID and thread timestamp
                 channel = event.get("channel", "")
-
                 # Use thread_ts if the message is in a thread, or use ts to start a new thread
                 thread_ts = event.get("thread_ts", event.get("ts"))
 
                 # Process the message and respond
                 token = settings.get("bot_token")
                 client = WebClient(token=token)
+
+                # allowed_channel が指定されているかチェック
+                if allowed_channel_setting:
+                    try:
+                        # チャンネルIDからチャンネル名を取得
+                        channel_info = client.conversations_info(channel=channel)
+                        actual_channel_name = channel_info["channel"]["name"]
+                        # 取得したチャンネル名に "#" を付けて比較
+                        current_channel_with_hash = f"#{actual_channel_name}"
+                        if current_channel_with_hash != allowed_channel_setting:
+                            # 許可されたチャンネルではなかった場合、メッセージを返して終了
+                            client.chat_postMessage(
+                                channel=channel,
+                                thread_ts=thread_ts,
+                                text=(
+                                    f"Current channel: {current_channel_with_hash} is not allowed."
+                                ),
+                            )
+                            return Response(status=200, response="ok", content_type="text/plain")
+                    except SlackApiError as e:
+                        print(f"Error getting channel info: {e}")
+                        try:
+                            client.chat_postMessage(
+                                channel=channel,
+                                thread_ts=thread_ts,
+                                text=(
+                                    f"Failed to retrieve channel info. SlackApiError: {str(e)}"
+                                ),
+                            )
+                        except SlackApiError:
+                            pass
+                        return Response(status=200, response="ok", content_type="text/plain")
+                    except Exception as e:
+                        print(f"Unexpected error: {e}")
+                        try:
+                            client.chat_postMessage(
+                                channel=channel,
+                                thread_ts=thread_ts,
+                                text=(
+                                    f"An unexpected error occurred while retrieving channel info. Error: {str(e)}"
+                                ),
+                            )
+                        except SlackApiError:
+                            pass
+                        return Response(status=200, response="ok", content_type="text/plain")
 
                 try:
                     # Create a key to check if the conversation already exists

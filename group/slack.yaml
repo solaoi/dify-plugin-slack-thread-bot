@@ -30,6 +30,20 @@ settings:
       pt_BR: Permitir Retentativas
       ja_JP: 再試行を許可
     default: false
+  - name: allowed_channel
+    type: text-input
+    required: false
+    label:
+      en_US: "Allowed Channel (in #channel format)"
+      zh_Hans: "允许使用的频道（#channel 格式）"
+      pt_BR: "Canal Permitido (no formato #channel)"
+      ja_JP: "利用を許可するチャンネル（#channel 形式）"
+    placeholder:
+      en_US: "Leave blank to allow all"
+      zh_Hans: "留空则允许所有频道"
+      pt_BR: "Deixe em branco para permitir todos"
+      ja_JP: "未入力の場合は全てのチャンネルで利用可能"
+    default: ""
   - name: app
     type: app-selector
     required: true
