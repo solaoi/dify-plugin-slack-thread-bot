@@ -1,4 +1,4 @@
-*Leia em outros idiomas: [English](https://github.com/solaoi/dify-plugin-slack-thread-bot/blob/v0.0.3/README.md), [日本語](https://github.com/solaoi/dify-plugin-slack-thread-bot/blob/v0.0.3/README.ja.md), [简体中文](https://github.com/solaoi/dify-plugin-slack-thread-bot/blob/v0.0.3/README.zh-Hans.md).*
+*Leia em outros idiomas: [English](https://github.com/solaoi/dify-plugin-slack-thread-bot/blob/v0.0.4/README.md), [日本語](https://github.com/solaoi/dify-plugin-slack-thread-bot/blob/v0.0.4/README.ja.md), [简体中文](https://github.com/solaoi/dify-plugin-slack-thread-bot/blob/v0.0.4/README.zh-Hans.md).*
 
 ![license](https://img.shields.io/github/license/solaoi/dify-plugin-slack-thread-bot)
 
@@ -7,7 +7,7 @@
 <img width="120" alt="Image" src="_assets/icon.svg">
 
 **Author:** solaoi
-**Version:** 0.0.3
+**Version:** 0.0.4
 **Type:** extensão
 
 ### Descrição
